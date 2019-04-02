@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Nuit de la guitare</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="../assets/js/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="../assets/css/sb-admin-2.css" rel="stylesheet">
-
-</head>
-
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -59,7 +36,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#"  >
+        <a class="nav-link collapsed" href="index.php?page=formulairefill"  >
           <i class="fas fa-fw fa-folder"></i>
           <span>Remplir</span>
         </a>
@@ -153,7 +130,7 @@
             <!-- Consulter un Formulaire-->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
-                  <a href="formulaire.php">
+                  <a href="formulaire.php"> 
                      <div class="card-body">
 
                       <div class="row no-gutters align-items-center">
@@ -253,22 +230,22 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../assets/js/sb-admin-2.js"></script>
-  <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
-  <script src="../assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/sb-admin-2.js"></script>
+  <script src="./assets/js/vendor/jquery/jquery.min.js"></script>
+  <script src="./assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="./assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../assets/js/sb-admin-2.min.js"></script>
+  <script src="./assets/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="../assets/js/vendor/chart.js/Chart.min.js"></script>
+  <script src="./assets/js/vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="../assets/js/demo/chart-area-demo.js"></script>
-  <script src="../assets/js/demo/chart-pie-demo..js"></script>
+  <script src="./assets/js/demo/chart-area-demo.js"></script>
+  <script src="./assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
