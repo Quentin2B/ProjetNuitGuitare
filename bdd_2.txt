@@ -1,0 +1,40 @@
+﻿Chauffeur:
+Id    Nom   Prénom    Téléphone   Couleur
+
+
+Groupe:
+Id    Nom   NbPersonnes   DateConcert
+
+
+Structure:
+Id    Catégorie   Nom   Adresse   Téléphone   Mail
+
+
+Course
+Id    Jour    Heure   #Chauffeur   #Groupe    #LieuDépart    #LieuArrivée jour/heuredépart	jour/heurearrivé
+
+
+
+____________
+
+
+V2
+
+Chauffeur :
+
+ID Nom Prénom Telephone facultatif(couleur)
+
+Groupe :
+
+ID Nom NbPersonne DateConcert LieuArrivé LieuDépart
+
+Structure:
+Id    Catégorie   Nom   Adresse   Téléphone   Mail
+
+Course:
+
+ID	#Date	Heure	#NomChauffeur	#NomGroupe	#NomStructure	Remarque
+
+Jour :
+ID	Date	#groupe
+
