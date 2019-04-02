@@ -126,68 +126,52 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Remplir un nouveau formulaire</h1>
+            <h1 class="h3 mb-0 text-gray-800">Liste des formulaires remplit</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
           </div>
           <div class="row">
+            <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">chauffeur</th>
+      <th scope="col">Hotel</th>
+      <th scope="col">artistes</th>
+      <th scope="col">port</th>
+      <th scope="col">heure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
 
 
-            <div class="container">
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
 
-               <div class="card o-hidden border-0 shadow-lg my-5">
-                 <div class="card-body p-0">
-                   <!-- Nested Row within Card Body -->
-                   <div class="row">
-                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                     <div class="col-lg-7">
-                       <div class="p-5">
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
 
-                         <form class="user">
-                           <div class="form-group row">
-                             <div class="col-sm-6 mb-3 mb-sm-0">
-                               <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Chauffeur">
-                             </div>
-                             <div class="col-sm-6">
-                               <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="artistes">
-                             </div>
-                           </div>
-                           <div class="form-group">
-                             <input type="telephone" class="form-control form-control-user" id="exampleInputEmail" placeholder="numero de telephone">
-                           </div>
-                           <div class="form-group row">
-                             <div class="col-sm-6 mb-3 mb-sm-0">
-                               <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="port">
-                             </div>
-                             <div class="col-sm-6">
-                               <input type="text" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Hotel">
-                             </div>
-                           </div>
-                           <a href="login.html" class="btn btn-primary btn-user btn-block">
-                             validé
-                           </a>
-                           <hr>
-
-                         </form>
-                         <hr>
-
-
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-             </div>
-
-             <!-- Bootstrap core JavaScript-->
-             <script src="vendor/jquery/jquery.min.js"></script>
-             <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-             <!-- Core plugin JavaScript-->
-             <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-             <!-- Custom scripts for all pages-->
-             <script src="js/sb-admin-2.min.js"></script>
+    </tr>
+  </tbody>
+</table>
 
           </div>
 
