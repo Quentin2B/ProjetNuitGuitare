@@ -2,7 +2,7 @@
     if(!empty($_GET['page'])) {
         $page = $_GET['page'];
         
-        if($page == '') { $require = './pages/formulaire.php'; }
+        if($page == 'formulairefill') { $require = './pages/formulaireRemplir.php'; }
 
 
         require($require);
