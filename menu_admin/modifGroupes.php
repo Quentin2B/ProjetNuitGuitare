@@ -29,8 +29,9 @@
 			$nomGroupe = $_POST['nomGroupe'];
 			$nbPersGroupe = $_POST['nbPersGroupe'];
 			$dateGroupe = $_POST['dateGroupe'];
+			$lieuGroupe = $_POST['lieuGroupe'];
 
-			$sqlAjoutGroupe = 'INSERT INTO groupe SET Nom="'. $nomGroupe . '", NbPersonnes="' . $nbPersGroupe .'", DateConcert="' . $dateGroupe . '"';
+			$sqlAjoutGroupe = 'INSERT INTO groupe SET Nom="'. $nomGroupe . '", NbPersonne="' . $nbPersGroupe .'", DateConcert="' . $dateGroupe . '", LieuArrivee="' . $lieuGroupe .'"';
 			accesBdd()->query($sqlAjoutGroupe);
 			header('Location: modifGroupes.php');
   			exit;
@@ -51,6 +52,7 @@
                     <th>Nom</th>
                     <th>Nombre Personnes</th>
                     <th>Date de concert</th>
+                    <th>Lieu d'arrivée</th>
                     <th>Supprimer</th>
                 </tr>
 
@@ -61,8 +63,9 @@
 		                <tr>
 		                    <td data-label="Id"><?php echo $donnees['Id'];?></td>
 		                    <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
-		                    <td data-label="Nombre Personnes"><?php echo $donnees['NbPersonnes'];?></td>
+		                    <td data-label="Nombre Personnes"><?php echo $donnees['NbPersonne'];?></td>
 		                    <td data-label="Date de Concert"><?php echo $donnees['DateConcert'];?></td>
+		                    <td data-label="Lieu d'arrivée"><?php echo $donnees['LieuArrivee'];?></td>
 		                    <td data-label="Supprimer"> 
 		                    	<a href='php/supprimerGroupes.php?Action=Suppression&id=<?php echo $donnees["Id"];?>' title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>		                    
 		                    </td>
@@ -85,6 +88,9 @@
 
 						<label>Date du concert</label>
 						<input type="date" name="dateGroupe" id="dateGroupe" value="2019-01-01" placeholder="Date de leur concert" size="4"/><br>
+
+						<label>Lieu d'arrivée</label>
+						<input type="text" name="lieuGroupe" id="lieuGroupe" placeholder="Lieu d'arrivée du Groupe" size="4"/><br>
 
 
 						<input type="submit" value="Ajouter" name="valide">

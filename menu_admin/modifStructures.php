@@ -30,9 +30,9 @@
 			$nomStruct = $_POST['nomStruct'];
 			$adresseStruct = $_POST['adresseStruct'];
 			$telephoneStruct = $_POST['telephoneStruct'];
-			$mailStruct = $_POST['mailStruct'];
+			//$mailStruct = $_POST['mailStruct'];
 
-			$sqlAjoutStruct = 'INSERT INTO structure SET Categorie="'. $categorie . '", Nom="' . $nomStruct .'", Adresse="' . $adresseStruct . '", Telephone="' . $telephoneStruct . '", Mail="' . $mailStruct . '"';
+			$sqlAjoutStruct = 'INSERT INTO structure SET Categorie="'. $categorie . '", Nom="' . $nomStruct .'", Adresse="' . $adresseStruct . '", Telephone="' . $telephoneStruct . '"';
 			accesBdd()->query($sqlAjoutStruct);
 			header('Location: modifStructures');
   			exit;
@@ -52,7 +52,7 @@
                     <th>Nom</th>
                     <th>Adresse</th>
                     <th>Téléphone</th>
-                    <th>Mail</th>
+                    <!--<th>Mail</th>-->
                     <th>Supprimer</th>
                 </tr>
 
@@ -66,7 +66,7 @@
 		                    <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
 		                    <td data-label="Adresse"><?php echo $donnees['Adresse'];?></td>
 		                    <td data-label="Téléphone"><?php echo $donnees['Telephone'];?></td>
-		                    <td data-label="Mail"><?php echo $donnees['Mail'];?></td>
+		                    <!--<td data-label="Mail"><?php //echo $donnees['Mail'];?></td>-->
 		                    <td data-label="Supprimer"> 
 		                    	<a href='php/supprimerStructures.php?Action=Suppression&id=<?php echo $donnees["Id"];?>' title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>		                    
 		                    </td>
@@ -99,8 +99,8 @@
 						<label>Téléphone</label>
 						<input type="text" name="telephoneStruct" id="telephoneStruct" placeholder="Téléphone de la Structure" size="4"/><br>
 
-						<label>Mail</label>
-						<input type="text" name="mailStruct" id="mailStruct" placeholder="Mail de la Structure" size="4"/><br>
+						<!--<label>Mail</label>
+						<input type="text" name="mailStruct" id="mailStruct" placeholder="Mail de la Structure" size="4"/><br>-->
 
 						<input type="submit" value="Ajouter" name="valide">
 

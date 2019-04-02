@@ -29,9 +29,9 @@
 			$nomChauffeur = $_POST['nomChauffeur'];
 			$prenomChauffeur = $_POST['prenomChauffeur'];
 			$telephoneChauffeur = $_POST['telephoneChauffeur'];
-			$couleurChauffeur = $_POST['couleurChauffeur'];
+			//$couleurChauffeur = $_POST['couleurChauffeur'];
 
-			$sqlAjoutChauffeur = 'INSERT INTO chauffeur SET Nom="'. $nomChauffeur . '", Prenom="' . $prenomChauffeur .'", Telephone="' . $telephoneChauffeur . '", Couleur = "' . $couleurChauffeur . '"';
+			$sqlAjoutChauffeur = 'INSERT INTO chauffeur SET Nom="'. $nomChauffeur . '", Prenom="' . $prenomChauffeur .'", Telephone="' . $telephoneChauffeur . '"';
 			accesBdd()->query($sqlAjoutChauffeur);
 			header('Location: modifChauffeurs.php');
   			exit;
@@ -50,7 +50,7 @@
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Téléphone</th>
-                    <th>Couleur</th>
+                    <!--<th>Couleur</th>-->
                     <th>Supprimer</th>
                 </tr>
 
@@ -63,7 +63,7 @@
 		                    <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
 		                    <td data-label="Prénom"><?php echo $donnees['Prenom'];?></td>
 		                    <td data-label="Téléphone"><?php echo $donnees['Telephone'];?></td>
-		                    <td data-label="Couleur"><?php echo $donnees['Couleur'];?></td>
+		                   <!-- <td data-label="Couleur"><?php //echo $donnees['Couleur'];?></td> -->
 		                    <td data-label="Supprimer"> 
 		                    	<a href='php/supprimerChauffeurs.php?Action=Suppression&id=<?php echo $donnees["Id"];?>' title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>		                    
 		                    </td>
@@ -87,8 +87,8 @@
 						<label>Téléphone</label>
 						<input type="text" name="telephoneChauffeur" id="telephoneChauffeur" placeholder="Numéro de téléphone du chauffeur" size="4"/><br>
 
-						<label>Couleur</label>
-						<input type="color" name="couleurChauffeur" id="couleurChauffeur" value="#ffffff" size="4"/><br>
+						<!--<label>Couleur</label>
+						<input type="color" name="couleurChauffeur" id="couleurChauffeur" value="#ffffff" size="4"/><br>-->
 
 
 						<input type="submit" value="Ajouter" name="valide">
