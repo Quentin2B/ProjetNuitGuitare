@@ -45,14 +45,14 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="index.php?page=formulaireConsult">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consulter</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="index.php?page=DataBaseUpdate">
           <i class="fas fa-fw fa-table"></i>
           <span>Mettre à jours</span></a>
       </li>
@@ -113,6 +113,7 @@
             <!-- Remplir un  Formulaire -->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
+                <a href="index.php?page=formulairefill">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -124,13 +125,14 @@
                     </div>
                   </div>
                 </div>
+              </a>
               </div>
             </div>
 
             <!-- Consulter un Formulaire-->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
-                  <a href="formulaire.php"> 
+                  <a href="index.php?page=formulaireConsult">
                      <div class="card-body">
 
                       <div class="row no-gutters align-items-center">
@@ -155,6 +157,7 @@
             <!-- Mettre à jours la base de données -->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
+                <a href="index.php?page=DataBaseUpdate">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -230,22 +233,22 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script src="./assets/js/sb-admin-2.js"></script>
-  <script src="./assets/js/vendor/jquery/jquery.min.js"></script>
-  <script src="./assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sb-admin-2.js"></script>
+  <script src="../assets/js/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="./assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="./assets/js/sb-admin-2.min.js"></script>
+  <script src="../assets/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="./assets/js/vendor/chart.js/Chart.min.js"></script>
+  <script src="../assets/js/vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="./assets/js/demo/chart-area-demo.js"></script>
-  <script src="./assets/js/demo/chart-pie-demo.js"></script>
+  <script src="../assets/js/demo/chart-area-demo.js"></script>
+  <script src="../assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
