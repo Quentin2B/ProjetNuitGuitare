@@ -7,7 +7,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?page=index.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -36,7 +36,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#"  >
+        <a class="nav-link collapsed" href="index.php?page=formulairefill"  >
           <i class="fas fa-fw fa-folder"></i>
           <span>Remplir</span>
         </a>
@@ -45,14 +45,14 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="index.php?page=formulaireConsult">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consulter</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="index.php?page=DataBaseUpdate">
           <i class="fas fa-fw fa-table"></i>
           <span>Mettre à jours</span></a>
       </li>
@@ -115,6 +115,7 @@
                  <div class="card-body p-0">
                    <!-- Nested Row within Card Body -->
                    <div class="row">
+                      <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                      <div class="col-lg-7">
                        <div class="p-5">
 
@@ -137,20 +138,20 @@
                            <div class="form-group">
                              Ajouter chauffeur  : <select id="nomChauffeur">
 
-                                    <?php 
+                                    <?php
 
                                       $reponse = $db->query("SELECT Nom FROM chauffeur");
- 
-                                      while($donnee = $reponse->fetch()) 
-                                        { 
-                                      ?>  
-                           
+
+                                      while($donnee = $reponse->fetch())
+                                        {
+                                      ?>
+
                                       <option value="<?php echo $donnee['Nom']?>" ><?php echo $donnee['Nom']; ?></option>
-                           
+
                                       <?php }
 
                                       $reponse->closeCursor();
-                           
+
                                     ?>
                                   </select>
 
@@ -270,4 +271,3 @@
     } else { echo 'Il faut indiquer le nom du groupe.'; }
   }
   ?>
-          
