@@ -19,7 +19,7 @@ while($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
         <td data-label="Nom du chauffer"><?php echo ($donnees['cPre'] . " " . $donnees['cNom']);?></td>
         <td data-label="Groupe"><?php echo $donnees['gNom'];?></td>
         <td data-label="Structure"><?php echo $donnees['sNom'];?></td>
-        <td data-label="Structure"><?php echo $donnees['Remarque'];?></td>
+        <td data-label="Remarque"><?php echo $donnees['Remarque'];?></td>
     </tr>
 <?php
 } //fin de la boucle, le tableau contient toute la BDD

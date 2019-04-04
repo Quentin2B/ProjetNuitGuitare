@@ -23,7 +23,9 @@
  	<a href='menu_admin/modifStructures.php'> Modifier les structures (hôtels, restaurants, aéroports...) </a> </br>
  	<a href='menu_admin/modifGroupes.php'> Modifier les groupes </a> </br>
  	<a href='menu_admin/modifChauffeurs.php'> Modifier les chauffeurs </a> </br>
-  <a href="menu_admin/modifCourse.php">Modifier les courses </a></br>
+  <a href="menu_admin/modifCourses.php">Modifier les courses </a></br>
+  <a href="menu_admin/voirCourses.php">Consulter les courses</a></br>
+    <a href="menu_admin/voirJours.php">Consulter les jours</a></br>
 
 
  </body>

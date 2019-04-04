@@ -19,3 +19,9 @@ je comprends pas trop le micmac de la partie menu_admin et nuit_guitare, du coup
 
 2eme partie du formulaires - afficher des courses à remplir  selon le nombre de jours-> pour chaque ligne jour, je donne un formulaire vierge pour course. C'est pas mieux de  donner directement course?
 partie back-end Formaulaire -> quel back ? il y a que lui qui s'en sert
+
+je vais m'arrêter vers 8h, je vous laisserai compléter. je pense que vous aurez besoin de reprendre la partie admin et la rendre jolie ou la coller dna snuit_guitatre
+
+ddb : groupe et concert devraient être deux entités non ? Sinon là, pour deux concerts de julien clerc on doit avoir deux fois "julien clerc" dans la base
+
+j'arrive pas à insérer des courses dans la base, je comprends pas
