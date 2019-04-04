@@ -21,6 +21,7 @@
     </head>
 
     <body>
-        <?php require("./pages/root.php"); ?>
+        <?php require("./pages/root.php");
+              require("./pages/db.php");?>
     </body>
 </html>

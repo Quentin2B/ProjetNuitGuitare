@@ -10,7 +10,7 @@
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/vendor/what-input.js"></script>
 		<script src="js/vendor/foundation.min.js"></script>
-		
+
 		<link rel="stylesheet" type="text/css" href="StyleFormCrea.css" media="all"/>
 		<script src="scripts.js"></script>
 	</head>
@@ -40,7 +40,7 @@
 	}
  ?>
 
- 
+
  <h3>Modification des Structures enregistrées dans la base de données</h3> <a href='../menu_admin.php' title='Retour au Menu'><img src='img/home.png' alt='Retour au menu' /></a><br>
 
  <div class="grid-x grid-padding-x">
@@ -67,8 +67,8 @@
 		                    <td data-label="Adresse"><?php echo $donnees['Adresse'];?></td>
 		                    <td data-label="Téléphone"><?php echo $donnees['Telephone'];?></td>
 		                    <!--<td data-label="Mail"><?php //echo $donnees['Mail'];?></td>-->
-		                    <td data-label="Supprimer"> 
-		                    	<a href='php/supprimerStructures.php?Action=Suppression&id=<?php echo $donnees["Id"];?>' title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>		                    
+                        <td data-label="Supprimer">
+		                    	<a onclick="actionDelete(<?php echo $donnees["Id"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>
 		                    </td>
 		                </tr>
 		            <?php
@@ -92,7 +92,7 @@
 
 						<label>Nom (obligatoire)</label>
 						<input type="text" name="nomStruct" id="nomStruct" placeholder="Nom de la Structure" size="4"/><br>
-						
+
 						<label>Adresse</label>
 						<input type="text" name="adresseStruct" id="adresseStruct" placeholder="Adresse de la Structure" size="4"/><br>
 
@@ -105,12 +105,11 @@
 						<input type="submit" value="Ajouter" name="valide">
 
 					</form>
-			
+
 		</div>
 
 	</div>
-
+  <script type="text/javascript" src="mainScript.js"></script>
  </body>
 
 </html>
-

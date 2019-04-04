@@ -1,4 +1,4 @@
-Theo tu dois tout faire !!! 
+Theo tu dois tout faire !!!
 
 
 js :  faire 2eme partie du formulaires - afficher des courses à remplir  selon le nombre de jours-
@@ -9,3 +9,13 @@ partie back-end Formaulaire
 
 
 rajoutez les tache a faire supprimé les taches qui sont faites pour voir ce qui reste
+
+
+///
+L'archi du projet est crade... je fais comme ça me semble coller.
+Je vous laisserai compléter/bouger au mieux, en tout cas le plus gros sera fait
+je comprends pas trop le micmac de la partie menu_admin et nuit_guitare, du coup je fait au mieux.
+
+
+2eme partie du formulaires - afficher des courses à remplir  selon le nombre de jours-> pour chaque ligne jour, je donne un formulaire vierge pour course. C'est pas mieux de  donner directement course?
+partie back-end Formaulaire -> quel back ? il y a que lui qui s'en sert

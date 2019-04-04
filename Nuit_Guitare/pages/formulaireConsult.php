@@ -99,68 +99,36 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+  <!-- Begin Page Content -->
+  <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Liste des formulaires remplit</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
-          </div>
-          <div class="row">
-            <table class="table table-striped table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">chauffeur</th>
-      <th scope="col">Hotel</th>
-      <th scope="col">artistes</th>
-      <th scope="col">port</th>
-      <th scope="col">heure</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
+  <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Prochaines Courses</h1>
+      <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
+    </div>
+    <div class="row">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Heure</th>
+            <th scope="col">Chauffeur</th>
+            <th scope="col">Artiste</th>
+            <th scope="col">Lieu arrivee</th>
+            <th scope="col">Remarques</th>
+          </tr>
+        </thead>
+      <tbody id="filledTbody">
+      </tbody>
+      </table>
+    </div>
 
+    </div>
+    <!-- /.container-fluid -->
 
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-
-    </tr>
-  </tbody>
-</table>
-
-          </div>
-
-
-
-
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
+  </div>
+  <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
