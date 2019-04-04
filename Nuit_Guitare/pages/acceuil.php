@@ -7,7 +7,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?page=index">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -36,7 +36,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="formulaireRemplir.php"  >
+        <a class="nav-link collapsed" href="index.php?page=formulairefill"  >
           <i class="fas fa-fw fa-folder"></i>
           <span>Remplir</span>
         </a>
@@ -45,8 +45,8 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <!-- <a class="nav-link" href="index.php?page=formulaireConsult"> -->
-        <a class="nav-link" onclick="getConsultChoice();">
+        <!-- <a class="nav-link" onclick="getConsultChoice();"> -->
+         <a class="nav-link" href="index.php?page=formulaireConsult">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consulter</span></a>
       </li>
@@ -133,8 +133,8 @@
             <!-- Consulter un Formulaire-->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
-                <!--             <a href="index.php?page=formulaireConsult">   -->
-                  <a href="pages/formulaireConsult.php">
+                <a href="index.php?page=formulaireConsult">   
+                <!--  <a href="pages/formulaireConsult.php">-->
                      <div class="card-body">
 
                       <div class="row no-gutters align-items-center">

@@ -1,5 +1,5 @@
 <?php
-
+/*
 	$database = array (
 
 		'HOST' => '127.0.0.1',
@@ -17,4 +17,4 @@
     }
     catch(Exception $e){
         die("Impossible d'accéder à la base de données.". $e);
-    }
+    }*/
