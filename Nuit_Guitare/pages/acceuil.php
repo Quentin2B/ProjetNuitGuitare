@@ -36,7 +36,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.php?page=formulairefill"  >
+        <a class="nav-link collapsed" href="formulaireRemplir.php"  >
           <i class="fas fa-fw fa-folder"></i>
           <span>Remplir</span>
         </a>
@@ -45,7 +45,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" onclick="getConsultChoice();">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consulter</span></a>
       </li>
@@ -130,7 +130,7 @@
             <!-- Consulter un Formulaire-->
             <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
-                  <a href="formulaire.php"> 
+                  <a href="pages/formulaireConsult.php">
                      <div class="card-body">
 
                       <div class="row no-gutters align-items-center">

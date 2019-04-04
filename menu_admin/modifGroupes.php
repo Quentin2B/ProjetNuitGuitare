@@ -10,7 +10,7 @@
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/vendor/what-input.js"></script>
 		<script src="js/vendor/foundation.min.js"></script>
-		
+
 		<link rel="stylesheet" type="text/css" href="StyleFormCrea.css" media="all"/>
 		<script src="scripts.js"></script>
 	</head>
@@ -39,9 +39,9 @@
 	}
  ?>
 
- 
 
- 
+
+
  <h3>Modification des Groupes enregistrés dans la base de données</h3> <a href='../menu_admin.php' title='Retour au Menu'><img src='img/home.png' alt='Retour au menu' /></a><br>
 
  <div class="grid-x grid-padding-x">
@@ -66,8 +66,8 @@
 		                    <td data-label="Nombre Personnes"><?php echo $donnees['NbPersonne'];?></td>
 		                    <td data-label="Date de Concert"><?php echo $donnees['DateConcert'];?></td>
 		                    <td data-label="Lieu d'arrivée"><?php echo $donnees['LieuArrivee'];?></td>
-		                    <td data-label="Supprimer"> 
-		                    	<a href='php/supprimerGroupes.php?Action=Suppression&id=<?php echo $donnees["Id"];?>' title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>		                    
+                        <td data-label="Supprimer">
+		                    	<a onclick="actionDelete(<?php echo $donnees["Id"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></a>
 		                    </td>
 		                </tr>
 		            <?php
@@ -82,7 +82,7 @@
 
 						<label>Nom (obligatoire)</label>
 						<input type="text" name="nomGroupe" id="nomGroupe" placeholder="Nom du Groupe" size="4"/><br>
-						
+
 						<label>Nombre de personnes dans l'équipe</label>
 						<input type="number" name="nbPersGroupe" id="nbPersGroupe" placeholder="Nombre de personnes dans le groupe et l'équipe" size="4"/><br>
 
@@ -96,12 +96,11 @@
 						<input type="submit" value="Ajouter" name="valide">
 
 					</form>
-			
+
 		</div>
 
 	</div>
-
+  <script type="text/javascript" src="mainScript.js"></script>
  </body>
 
 </html>
-
