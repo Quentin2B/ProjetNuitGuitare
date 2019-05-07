@@ -16,6 +16,7 @@
         <link href="./assets/css/sb-admin-2.css" rel="stylesheet">
 
         <script src="./assets/js/vendor/jquery.js"></script>
+        <script src="./assets/js/jspdf.min.js"></script>
         <script src="./assets/js/vendor/what-input.js"></script>
         <script src="./assets/scripts.js"></script>
     </head>
@@ -23,5 +24,22 @@
     <body>
         <?php require("./pages/root.php");
               require_once("./pages/db.php");?>
+
+              <script type="text/javascript">
+                var doc = new jsPDF();
+                var specialElementHandlers = {
+                  '#editor': function (element, renderer) {
+                    return true;
+                  }
+                };
+
+                $('#cmd').click(function () {
+                  doc.fromHTML($('html').html(), 0, 0, {
+                    'width': 170,
+                    'elementHandlers': specialElementHandlers
+                  });
+                  doc.save('page.pdf');
+                });
+              </script>
     </body>
 </html>

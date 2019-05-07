@@ -3,7 +3,9 @@ require_once("./pages/db.php");
     if(!empty($_GET['page'])) {
         $page = $_GET['page'];
 
-        if($page == 'formulairefill') { $require = './pages/formulaireRemplir.php'; }
+        if($page == 'formulairefill') {
+          $require = './pages/formulaireRemplir.php';
+        }
         elseif($page == 'formulaireConsult')
             {
                 $require = './pages/formulaireConsult.php';

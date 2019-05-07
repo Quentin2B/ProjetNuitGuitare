@@ -36,7 +36,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.php?page=formulairefill"  >
+        <a class="nav-link collapsed" href="index.php?page=divulairefill"  >
           <i class="fas fa-fw fa-folder"></i>
           <span>Remplir</span>
         </a>
@@ -45,7 +45,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=formulaireConsult">
+        <a class="nav-link" href="index.php?page=divulaireConsult">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Consulter</span></a>
       </li>
@@ -84,7 +84,7 @@
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
+            <!-- Nav Item - User Indivation -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Antoine mucchielli</span>
@@ -97,89 +97,208 @@
 
         </nav>
         <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
+        <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Remplir un nouveau formulaire</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
+            <h1 class="h3 mb-0 text-gray-800">Ajout d'éléments</h1>
+            <a href="#" id="cmd" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
           </div>
-          <div class="row">
+
+          <h3>Modification des Chauffeurs enregistrés dans la base de données</h3> <a href='../menu_admin.php' title='Retour au Menu'><img src='img/home.png' alt='Retour au menu' /></a><br>
+
+          <div class="grid-x grid-padding-x">
+               <div class="medium-6 cell">
+                 <table class="responsive-card-table unstriped" border=4>
+                         <tr>
+                             <th>id</th>
+                             <th>Nom</th>
+                             <th>Prénom</th>
+                             <th>Téléphone</th>
+                             <!--<th>Couleur</th>-->
+                             <th>Supprimer</th>
+                         </tr>
+
+                         <?php //On affiche les lignes du tableau une à une à l'aide d'une boucle
+                         $sqlChauffeurs = 'SELECT * FROM chauffeur';
+                         $reponse = accesBdd()->query($sqlChauffeurs);
+                         while($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
+                         {
+                         ?>
+                             <tr>
+                                 <td data-label="Id"><?php echo $donnees['Id'];?></td>
+                                 <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
+                                 <td data-label="Prénom"><?php echo $donnees['Prenom'];?></td>
+                                 <td data-label="Téléphone"><?php echo $donnees['Telephone'];?></td>
+                                <!-- <td data-label="Couleur"><?php //echo $donnees['Couleur'];?></td> -->
+                                 <td data-label="Supprimer">
+                                   <button onclick="actionDeleteC(<?php echo $donnees["Id"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></button>
+                                 </td>
+                             </tr>
+                         <?php
+                         } //fin de la boucle, le tableau contient toute la BDD
+                      ?>
+                     </table>
+             </div>
+
+             <div class="medium-6 cell" id="PageDroite">
+               <h2> Ajout d'un nouveau chauffeur </h2>
+                   <div name="AjoutChauffeur" >
+
+                     <label>Nom (obligatoire)</label>
+                     <input type="text" name="nomChauffeur" id="nomChauffeur" placeholder="Nom du Chauffeur" size="4"/><br>
+
+                     <label>Prénom</label>
+                     <input type="text" name="prenomChauffeur" id="prenomChauffeur" placeholder="Prénom du Chauffeur" size="4"/><br>
+
+                     <label>Téléphone</label>
+                     <input type="text" name="telephoneChauffeur" id="telephoneChauffeur" placeholder="Numéro de téléphone du chauffeur" size="4"/><br>
+
+                     <!--<label>Couleur</label>
+                     <input type="color" name="couleurChauffeur" id="couleurChauffeur" value="#ffffff" size="4"/><br>-->
 
 
-            <div class="container">
+                     <input type="submit" value="Ajouter" name="valide">
 
-               <div class="card o-hidden border-0 shadow-lg my-5">
-                 <div class="card-body p-0">
-                   <!-- Nested Row within Card Body -->
-                   <div class="row">
-                      <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                     <div class="col-lg-7">
-                       <div class="p-5">
-
-                         <form name="FormCrea" action="index.php?page=formulairefill" method="post">
-                           <div class="form-group row">
-                             <div class="col-sm-6 mb-3 mb-sm-0">
-                               Nom Groupe : <input type="text" class="form-control form-control-user" name="NomGroupe" placeholder="Nom du groupe">
-                             </div>
-                             <div class="col-sm-6">
-                               Effectif groupe : <input type="text" class="form-control form-control-user" name="EffectifGroupe" placeholder="Effectif du groupe à déplacer">
-                             </div>
-                             <br><br>
-                             <div class="col-sm-6">
-                               Date du concert du Groupe : <input type="date" class="form-control form-control-user" name="DateConcert" placeholder="Date Concert">
-                            <br><br>
-                            </div>
-                             <div class="col-sm-6">
-                               Lieu d'arrivée : <input type="text" class="form-control form-control-user" name="LieuArrivee" placeholder="Lieu Arrivée">
-                           </div>
-                           <div class="form-group">
-                             Ajouter chauffeur  : <select id="nomChauffeur">
-
-                                    <?php
-
-                                      $reponse = $db->query("SELECT Nom FROM chauffeur");
-
-                                      while($donnee = $reponse->fetch())
-                                        {
-                                      ?>
-
-                                      <option value="<?php echo $donnee['Nom']?>" ><?php echo $donnee['Nom']; ?></option>
-
-                                      <?php }
-
-                                      $reponse->closeCursor();
-
-                                    ?>
-                                  </select>
-
-                                  <button type="button" class="btn btn-primary" id="ValiderChauffeur" onclick="addChauffeur();">Selectionner Chauffeur</button>
-                           </div>
-                           <div id="divAdded">
-                           </div>
-                           <div class="form-group ">
-
-                            <input type="text" class="form-control form-control-user" name="GroupeJour" id="GroupeJour" placeholder="Nombre de jours sur place du Groupe">
-
-                            <button type="button" class="btn btn-primary" id="ValiderJours">Valider nombre jours</button>
-
-                            <hr>
-
-                           </div>
-                          <input type="submit" name="valide" value="Valider formulaire" class="btn btn-primary">
-                         </form>
-                         <hr>
-
-
-                       </div>
-                     </div>
                    </div>
-                 </div>
-               </div>
 
              </div>
+
+
+        </div>
+
+        <h3>Modification des Groupes enregistrés dans la base de données</h3> <a href='../menu_admin.php' title='Retour au Menu'><img src='img/home.png' alt='Retour au menu' /></a><br>
+
+        <div class="grid-x grid-padding-x">
+             <div class="medium-6 cell">
+               <table class="responsive-card-table unstriped" border=4>
+                       <tr>
+                           <th>id</th>
+                           <th>Nom</th>
+                           <th>Nombre Personnes</th>
+                           <th>Date de concert</th>
+                           <th>Lieu d'arrivée</th>
+                           <th>Supprimer</th>
+                       </tr>
+
+                       <?php //On affiche les lignes du tableau une à une à l'aide d'une boucle
+                       $sqlChauffeurs = 'SELECT * FROM groupe';
+                       $reponse = accesBdd()->query($sqlChauffeurs);
+                       while($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
+                       {
+                       ?>
+                           <tr>
+                               <td data-label="Id"><?php echo $donnees['Id'];?></td>
+                               <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
+                               <td data-label="Nombre Personnes"><?php echo $donnees['NbPersonne'];?></td>
+                               <td data-label="Date de Concert"><?php echo $donnees['DateConcert'];?></td>
+                               <td data-label="Lieu d'arrivée"><?php echo $donnees['LieuArrivee'];?></td>
+                               <td data-label="Supprimer">
+                                 <button onclick="actionDeleteG(<?php echo $donnees["Id"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></button>
+                               </td>
+                           </tr>
+                       <?php
+                       } //fin de la boucle, le tableau contient toute la BDD
+                    ?>
+                   </table>
+           </div>
+
+           <div class="medium-6 cell" id="PageDroite">
+             <h2> Ajout d'un nouveau groupe </h2>
+                 <div name="AjoutGroupe">
+
+                   <label>Nom (obligatoire)</label>
+                   <input type="text" name="nomGroupe" id="nomGroupe" placeholder="Nom du Groupe" size="4"/><br>
+
+                   <label>Nombre de personnes dans l'équipe</label>
+                   <input type="number" name="nbPersGroupe" id="nbPersGroupe" placeholder="Nombre de personnes dans le groupe et l'équipe" size="4"/><br>
+
+                   <label>Date du concert</label>
+                   <input type="date" name="dateGroupe" id="dateGroupe" value="2019-01-01" placeholder="Date de leur concert" size="4"/><br>
+
+                   <label>Lieu d'arrivée</label>
+                   <input type="text" name="lieuGroupe" id="lieuGroupe" placeholder="Lieu d'arrivée du Groupe" size="4"/><br>
+
+
+                   <input type="submit" value="Ajouter" name="valide">
+
+                 </div>
+
+           </div>
+
+         </div>
+
+         <h3>Modification des Structures enregistrées dans la base de données</h3> <a href='../menu_admin.php' title='Retour au Menu'><img src='img/home.png' alt='Retour au menu' /></a><br>
+
+         <div class="grid-x grid-padding-x">
+              <div class="medium-6 cell">
+               <table class="responsive-card-table unstriped" border=4>
+                        <tr>
+                            <th>id</th>
+                            <th>Catégorie</th>
+                            <th>Nom</th>
+                            <th>Adresse</th>
+                            <th>Téléphone</th>
+                            <!--<th>Mail</th>-->
+                            <th>Supprimer</th>
+                        </tr>
+
+                        <?php //On affiche les lignes du tableau une à une à l'aide d'une boucle
+                        $sqlChauffeurs = 'SELECT * FROM structure';
+                        $reponse = accesBdd()->query($sqlChauffeurs);
+                       while($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
+                       {
+                       ?>
+                           <tr>
+                               <td data-label="Id"><?php echo $donnees['Id'];?></td>
+                               <td data-label="Catégorie"><?php echo $donnees['Categorie'];?></td>
+                               <td data-label="Nom"><?php echo $donnees['Nom'];?></td>
+                               <td data-label="Adresse"><?php echo $donnees['Adresse'];?></td>
+                               <td data-label="Téléphone"><?php echo $donnees['Telephone'];?></td>
+                               <!--<td data-label="Mail"><?php //echo $donnees['Mail'];?></td>-->
+                                <td data-label="Supprimer">
+                                 <button onclick="actionDeleteS(<?php echo $donnees["Id"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></button>
+                               </td>
+                           </tr>
+                       <?php
+                       } //fin de la boucle, le tableau contient toute la BDD
+                    ?>
+                   </table>
+           </div>
+
+           <div class="medium-6 cell" id="PageDroite">
+             <h2> Ajout d'une nouvelle structure </h2>
+                 <div id="AjoutStructure" >
+
+                   <label>Catégorie</label>
+                   <select name="categorie" id="categorie">
+                     <option value="scene"> Scène </option>
+                     <option value="aeroport"> Aéroport </option>
+                     <option value="hotel"> Hôtel </option>
+                     <option value="restaurant"> Restaurant </option>
+                     <option value="divers"> Divers </option>
+                   </select>
+
+                   <label>Nom (obligatoire)</label>
+                   <input type="text" name="nomStruct" id="nomStruct" placeholder="Nom de la Structure" size="4"/><br>
+
+                   <label>Adresse</label>
+                   <input type="text" name="adresseStruct" id="adresseStruct" placeholder="Adresse de la Structure" size="4"/><br>
+
+                   <label>Téléphone</label>
+                   <input type="text" name="telephoneStruct" id="telephoneStruct" placeholder="Téléphone de la Structure" size="4"/><br>
+
+                   <!--<label>Mail</label>
+                   <input type="text" name="mailStruct" id="mailStruct" placeholder="Mail de la Structure" size="4"/><br>-->
+
+                   <button onclick="ajouterS();" name="valide">Valider</button>
+
+                 </div>
+
+           </div>
+
+         </div>
 
              <!-- Bootstrap core JavaScript-->
              <script src="vendor/jquery/jquery.min.js"></script>
@@ -190,11 +309,54 @@
 
              <!-- Custom scripts for all pages-->
              <script src="js/sb-admin-2.min.js"></script>
-             <script>
-              function addChauffeur(){
-                var div = document.getElementById("divAdded");
-                div.innerHTML += "<p></p></br>";
-              }
+             <script type="text/javascript">
+               function actionDeleteC(id){
+                 var xhttp = new XMLHttpRequest();
+                 xhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                      console.log("no");
+                   }
+                 };
+                 xhttp.open("GET", "./pages/supprimerChauffeurs.php" + "?Action=Suppression&id=" + id, true);
+                 xhttp.send();
+               }
+
+               function actionDeleteG(id){
+                 var xhttp = new XMLHttpRequest();
+                 xhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                    console.log("no");
+                   }
+                 };
+                 xhttp.open("GET", "./pages/supprimerGroupes.php" + "?Action=Suppression&id=" + id, true);
+                 xhttp.send();
+               }
+
+               function actionDeleteS(id){
+                 var xhttp = new XMLHttpRequest();
+                 xhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                      console.log("no");
+                   }
+                 };
+                 xhttp.open("GET", "./pages/supprimerStructures.php" + "?Action=Suppression&id=" + id, true);
+                 xhttp.send();
+               }
+
+               function ajouterS(){
+                 var xhttp = new XMLHttpRequest();
+                 var nS = document.getElementById("nomStruct").value;
+                 var adS =  document.getElementById("adresseStruct").value;
+                 var telS =  document.getElementById("telephoneStruct").value;
+                 var catS =  document.getElementById("categorie").value;
+                 xhttp.onreadystatechange = function() {
+                   if (this.readyState == 4 && this.status == 200) {
+                      console.log("no");
+                   }
+                 };
+                 xhttp.open("GET", "./pages/ajouterStructures.php" + "?Action=AJouter&nomStruct="+nS + "&adresseStruct="+adS+"&telephoneStruct="+telS+"&categorie="+catS, true);
+                 xhttp.send();
+               }
              </script>
 
           </div>

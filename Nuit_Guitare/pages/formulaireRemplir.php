@@ -21,10 +21,10 @@
 $reponse = accesBdd()->query($sqlChauffeurs);
 
 if(!empty($_POST['valide'])) {
-  if(!empty($_POST['nomChauffeur']) && !empty($_POST['date']) && !empty($_POST['heure']) && !empty($_POST['chauffeur']) && !empty($_POST['groupe']) && !empty($_POST['structure'])) {
+  if(!empty($_POST['nomChauffeur']) && !empty($_POST['date']) && !empty($_POST['heure']) && !empty($_POST['groupe']) && !empty($_POST['structure'])) {
     $date = $_POST["date"];
     $heure = $_POST["heure"];
-    $chauffeur = $_POST["chauffeur"];
+    $chauffeur = $_POST["nomChauffeur"];
     $groupe = $_POST["groupe"];
     $structure = $_POST["structure"];
     $remarque = $_POST["remarque"];
@@ -32,7 +32,7 @@ if(!empty($_POST['valide'])) {
     $sqlAjoutChauffeur = "INSERT INTO `course` (`Id`, `Date`, `Heure`, `NomChauffeur`, `NomGroupe`, `NomStructure`, `Remarque`) VALUES (NULL, '".$date."', '".$heure."', '".$chauffeur."', '".$groupe."', '".$structure."', '".$remarque."');";
     echo ($sqlAjoutChauffeur);
     accesBdd()->query($sqlAjoutChauffeur);
-    header('Location: formulaireRemplir.php');
+    header('Location: ./index.php?page=formulairefill');
     exit;
   }
 }
@@ -140,7 +140,7 @@ if(!empty($_POST['valide'])) {
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Remplir un nouveau formulaire</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
+            <a href="#" id="cmd" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> pdf feature</a>
           </div>
           <div class="row">
 
@@ -158,7 +158,7 @@ if(!empty($_POST['valide'])) {
                          <form name="FormCrea" action="index.php?page=formulairefill" method="post">
                            <div class="form-group row">
                              <div class="col-sm-6 mb-3 mb-sm-0">
-                               Choisir Groupe : <select id="idGroupe">
+                               Choisir Groupe : <select name="groupe" id="idGroupe">
 
                                       <?php
 
@@ -183,7 +183,7 @@ if(!empty($_POST['valide'])) {
                             <br><br>
                             </div>
                              <div class="col-sm-6">
-                               Lieu d'arrivée : <select id="structure">
+                               Lieu d'arrivée : <select name="structure" id="structure">
 
                                       <?php
 
@@ -203,10 +203,10 @@ if(!empty($_POST['valide'])) {
                                     </select>
                            </div>
                            <div class="col-sm-6">
-                             Heure d'arrivée du Groupe : <input type="time" class="form-control form-control-user" name="time" placeholder="Heure Arrivée">
+                             Heure d'arrivée du Groupe : <input type="time" class="form-control" value="10:00" name="heure" placeholder="Heure Arrivée">
                            <br>
                            <div >
-                             Choisir chauffeur  : <select id="nomChauffeur">
+                             Choisir chauffeur  : <select name="nomChauffeur" id="nomChauffeur">
 
                                     <?php
 

@@ -1,5 +1,5 @@
 <?php
-require_once("bdd.php");
+require_once("db.php");
 
 if (!isset($_GET['Action'])) $_GET['Action']="";
   $Action=$_GET['Action'];
@@ -11,6 +11,6 @@ if (!isset($_GET['Action'])) $_GET['Action']="";
     accesBdd()->query($sqlSupprChauffeur);
   }
 
-  header('Location: ../modifChauffeurs.php');
+  header('Location: ./index.php?page=DataBaseUpdate');
   exit;
 ?>

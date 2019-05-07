@@ -19,7 +19,7 @@
 
  <?php
 	 //Connection avec la BDD.
-    require("php/bdd.php");
+    require_once("php/bdd.php");
 
     $sqlChauffeurs = 'SELECT * FROM chauffeur';
 	$reponse = accesBdd()->query($sqlChauffeurs);
