@@ -1,5 +1,6 @@
 
 <body id="page-top">
+  <?php require_once("db.php");?>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -117,9 +118,37 @@
             <th scope="col">Artiste</th>
             <th scope="col">Lieu arrivee</th>
             <th scope="col">Remarques</th>
+            <th scope="col">Supprimer</th>
           </tr>
         </thead>
       <tbody id="filledTbody">
+        <?php
+        $sqlGroupes = "SELECT  course.Id as cId, Date, Heure, chauffeur.Nom as cNom, chauffeur.Prenom as cPre, groupe.Nom as gNom, structure.Nom as sNom, Remarque
+                                    FROM `course`
+                                    JOIN chauffeur ON NomChauffeur = chauffeur.Id
+                                    JOIN groupe ON NomGroupe = groupe.Id
+                                    JOIN structure ON NomStructure = structure.Id
+                                    ORDER BY Date, SUBSTRING_INDEX(Heure, '', -1), SUBSTRING_INDEX(Heure, ' ', 1)";
+        $reponse = accesBdd()->query($sqlGroupes);
+
+        while($donnees = $reponse->fetch(PDO::FETCH_ASSOC))
+        {
+        ?>
+        <tr>
+            <td data-label="Date"><?php echo $donnees['Date'];?></td>
+            <td data-label="Heure"><?php echo $donnees['Heure'];?></td>
+            <td data-label="Nom du chauffer"><?php echo ($donnees['cPre'] . " " . $donnees['cNom']);?></td>
+            <td data-label="Groupe"><?php echo $donnees['gNom'];?></td>
+            <td data-label="Structure"><?php echo $donnees['sNom'];?></td>
+            <td data-label="Remarque"><?php echo $donnees['Remarque'];?></td>
+            <td data-label="Supprimer">
+              <button onclick="actionDelete(<?php echo $donnees["cId"];?>);" title='Supprimer'><img src='img/croix.png' alt='Supprimer' /></button>
+            </td>
+        </tr>
+        <?php
+        } //fin de la boucle, le tableau contient toute la BDD
+
+         ?>
       </tbody>
       </table>
     </div>
@@ -147,7 +176,17 @@
   <!-- End of Page Wrapper -->
 
 
-
-
+<script type="text/javascript">
+  function actionDelete(id){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+         refresh();
+      }
+    };
+    xhttp.open("GET", "./pages/supprimerCourse.php" + "?Action=Suppression&id=" + id, true);
+    xhttp.send();
+  }
+</script>
 
 </body>

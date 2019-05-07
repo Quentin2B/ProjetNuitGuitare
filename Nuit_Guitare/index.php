@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="fr">
+<html >
 
     <head>
         <meta charset="utf-8" />
@@ -22,6 +22,6 @@
 
     <body>
         <?php require("./pages/root.php");
-              require("./pages/db.php");?>
+              require_once("./pages/db.php");?>
     </body>
 </html>

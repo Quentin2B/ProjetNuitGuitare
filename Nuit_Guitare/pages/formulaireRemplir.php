@@ -1,6 +1,42 @@
 <body id="page-top">
 
+
   <!-- Page Wrapper -->
+  <?php
+
+  require_once("db.php");
+
+  $sqlChauffeurs = "SELECT course.Id, Date, Heure, chauffeur.Nom as cNom, chauffeur.Prenom as cPre, groupe.Nom as gNom, structure.Nom as sNom, Remarque
+                              FROM `course`
+                              JOIN chauffeur ON NomChauffeur = chauffeur.Id
+                              JOIN groupe ON NomGroupe = groupe.Id
+                              JOIN structure ON NomStructure = structure.Id
+                              ORDER BY Date, SUBSTRING_INDEX(Heure, '', -1), SUBSTRING_INDEX(Heure, ' ', 1)";
+  $formChauffeurs = "SELECT Id, Nom, Prenom FROM chauffeur";
+  $formGroupes = "SELECT Id, Nom FROM groupe";
+  $formStructures = "SELECT Id, Nom FROM structure";
+  $formChauffeurs = accesBdd()->query($formChauffeurs);
+  $formGroupes = accesBdd()->query($formGroupes);
+  $formStructures = accesBdd()->query($formStructures);
+$reponse = accesBdd()->query($sqlChauffeurs);
+
+if(!empty($_POST['valide'])) {
+  if(!empty($_POST['nomChauffeur']) && !empty($_POST['date']) && !empty($_POST['heure']) && !empty($_POST['chauffeur']) && !empty($_POST['groupe']) && !empty($_POST['structure'])) {
+    $date = $_POST["date"];
+    $heure = $_POST["heure"];
+    $chauffeur = $_POST["chauffeur"];
+    $groupe = $_POST["groupe"];
+    $structure = $_POST["structure"];
+    $remarque = $_POST["remarque"];
+
+    $sqlAjoutChauffeur = "INSERT INTO `course` (`Id`, `Date`, `Heure`, `NomChauffeur`, `NomGroupe`, `NomStructure`, `Remarque`) VALUES (NULL, '".$date."', '".$heure."', '".$chauffeur."', '".$groupe."', '".$structure."', '".$remarque."');";
+    echo ($sqlAjoutChauffeur);
+    accesBdd()->query($sqlAjoutChauffeur);
+    header('Location: formulaireRemplir.php');
+    exit;
+  }
+}
+?>
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -122,31 +158,65 @@
                          <form name="FormCrea" action="index.php?page=formulairefill" method="post">
                            <div class="form-group row">
                              <div class="col-sm-6 mb-3 mb-sm-0">
-                               Nom Groupe : <input type="text" class="form-control form-control-user" name="NomGroupe" placeholder="Nom du groupe">
-                             </div>
-                             <div class="col-sm-6">
-                               Effectif groupe : <input type="text" class="form-control form-control-user" name="EffectifGroupe" placeholder="Effectif du groupe à déplacer">
+                               Choisir Groupe : <select id="idGroupe">
+
+                                      <?php
+
+                                        $reponse = accesBdd()->query("SELECT Id, Nom FROM groupe ORDER BY Nom");
+
+                                        while($donnee = $reponse->fetch())
+                                          {
+                                        ?>
+
+                                        <option value="<?php echo $donnee['Id']?>" ><?php echo $donnee['Nom']; ?></option>
+
+                                        <?php }
+
+                                        $reponse->closeCursor();
+
+                                      ?>
+                                    </select>
                              </div>
                              <br><br>
                              <div class="col-sm-6">
-                               Date du concert du Groupe : <input type="date" class="form-control form-control-user" name="DateConcert" placeholder="Date Concert">
+                               Date du concert du Groupe : <input type="date" class="form-control form-control-user" name="date" placeholder="Date Concert">
                             <br><br>
                             </div>
                              <div class="col-sm-6">
-                               Lieu d'arrivée : <input type="text" class="form-control form-control-user" name="LieuArrivee" placeholder="Lieu Arrivée">
+                               Lieu d'arrivée : <select id="structure">
+
+                                      <?php
+
+                                        $reponse = accesBdd()->query("SELECT Id, Nom FROM structure ORDER BY Nom");
+
+                                        while($donnee = $reponse->fetch())
+                                          {
+                                        ?>
+
+                                        <option value="<?php echo $donnee['Id']?>" ><?php echo $donnee['Nom']; ?></option>
+
+                                        <?php }
+
+                                        $reponse->closeCursor();
+
+                                      ?>
+                                    </select>
                            </div>
-                           <div class="form-group">
-                             Ajouter chauffeur  : <select id="nomChauffeur">
+                           <div class="col-sm-6">
+                             Heure d'arrivée du Groupe : <input type="time" class="form-control form-control-user" name="time" placeholder="Heure Arrivée">
+                           <br>
+                           <div >
+                             Choisir chauffeur  : <select id="nomChauffeur">
 
                                     <?php
 
-                                      $reponse = $db->query("SELECT Nom FROM chauffeur");
+                                      $reponse = accesBdd()->query("SELECT Id, Nom FROM chauffeur ORDER BY Nom");
 
                                       while($donnee = $reponse->fetch())
                                         {
                                       ?>
 
-                                      <option value="<?php echo $donnee['Nom']?>" ><?php echo $donnee['Nom']; ?></option>
+                                      <option value="<?php echo $donnee['Id']?>" ><?php echo $donnee['Nom']; ?></option>
 
                                       <?php }
 
@@ -155,19 +225,11 @@
                                     ?>
                                   </select>
 
-                                  <button type="button" class="btn btn-primary" id="ValiderChauffeur" onclick="addChauffeur();">Selectionner Chauffeur</button>
                            </div>
-                           <div id="divAdded">
-                           </div>
-                           <div class="form-group ">
-
-                            <input type="text" class="form-control form-control-user" name="GroupeJour" id="GroupeJour" placeholder="Nombre de jours sur place du Groupe">
-
-                            <button type="button" class="btn btn-primary" id="ValiderJours">Valider nombre jours</button>
-
-                            <hr>
-
-                           </div>
+                           <br><br>
+                           <div >
+                             Remarques : <textarea class="form-control form-control-user" name="remarque" size=6 placeholder="Remarques">Remarques</textarea>
+                         </div>
                           <input type="submit" name="valide" value="Valider formulaire" class="btn btn-primary">
                          </form>
                          <hr>
@@ -190,12 +252,6 @@
 
              <!-- Custom scripts for all pages-->
              <script src="js/sb-admin-2.min.js"></script>
-             <script>
-              function addChauffeur(){
-                var div = document.getElementById("divAdded");
-                div.innerHTML += "<p></p></br>";
-              }
-             </script>
 
           </div>
 

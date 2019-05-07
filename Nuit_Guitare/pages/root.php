@@ -1,4 +1,5 @@
 <?php
+require_once("./pages/db.php");
     if(!empty($_GET['page'])) {
         $page = $_GET['page'];
 
